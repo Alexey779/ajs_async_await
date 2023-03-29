@@ -1,11 +1,10 @@
-import GameSavingLoader from './gameLoader';
+import GameSavingLoader from './gamesavingloader';
 
-(async () => {
-  try {
-    // eslint-disable-next-line no-console
-    await GameSavingLoader.load().then((saving) => console.log(saving));
-  } catch (error) {
-    // eslint-disable-next-line no-console
-    console.log(error);
-  }
-})();
+GameSavingLoader.load().then((saving) => {
+  // saving объект класса GameSaving
+  // eslint-disable-next-line no-console
+  console.log(saving);
+}, (error) => {
+  // eslint-disable-next-line no-console
+  console.log(error);
+});

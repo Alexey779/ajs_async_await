@@ -1,7 +1,8 @@
-import GameSavingLoader from '../gameLoader';
+import GameSavingLoader from '../gamesavingloader';
+import GameSaving from '../gamesaving';
 
-test('Проверка класса GameSavingLoader с методом load.', async () => {
-  const result = JSON.stringify({
+test('method GameSavingLoader.load() should create object', async () => {
+  const sample = new GameSaving({
     id: 9,
     created: 1546300800,
     userInfo: {
@@ -11,8 +12,6 @@ test('Проверка класса GameSavingLoader с методом load.', a
       points: 2000,
     },
   });
-
-  await GameSavingLoader.load().then((saving) => {
-    expect(saving).toEqual(result);
-  });
+  const data = await GameSavingLoader.load();
+  expect(data).toEqual(sample);
 });
